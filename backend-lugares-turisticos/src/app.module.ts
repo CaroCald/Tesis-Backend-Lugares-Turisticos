@@ -7,6 +7,7 @@ import {JwtService} from "./services/jwt.service";
 import {UsuarioEntity} from "./entities/usuario.entity";
 import {RolEntity} from "./entities/rol.entity";
 import {UsuarioService} from "./services/usuario.service";
+import {UsuarioController} from "./controllers/usuario.controller";
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import {UsuarioService} from "./services/usuario.service";
           RolEntity
       ])
   ],
-  controllers: [AppController, AuthController],
+  controllers: [AppController, AuthController, UsuarioController],
   providers: [AppService, JwtService, UsuarioService],
 })
 export class AppModule {}

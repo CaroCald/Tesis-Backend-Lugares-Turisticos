@@ -1,4 +1,4 @@
-import {BadRequestException, Body, Controller, Post} from "@nestjs/common";
+import {BadRequestException, Body, Controller, Post, Res} from "@nestjs/common";
 import {JwtService} from "../services/jwt.service";
 import {UsuarioEntity} from "../entities/usuario.entity";
 import {UsuarioService} from "../services/usuario.service";
@@ -14,9 +14,7 @@ export class AuthController {
         const usuarioBD = await this._usuarioService.selectPorAlias(usuario.alias) as UsuarioEntity;
 
         if(enviarParametros){
-
-            const credencialesValidas = usuario.nick === usuarioBD.alias && usuario.password === usuarioBD.password
-
+            const credencialesValidas = usuario.nick === usuarioBD.alias && usuario.password === usuarioBD.password;
             if(credencialesValidas){
                 return {
                     jwt: this._jwtService.emitirToken({
@@ -40,22 +38,21 @@ export class AuthController {
     }
 
     @Post('verificarAsync')
-    verificarTokeAsyn(@Body('jwt') jwt){
-        const enviarParametos=jwt;
-        if(enviarParametos){
-            this._jwtService.verificarTokenASync(jwt, (error, datos)=>{
-                if(error){
-                    throw new  BadRequestException({
-                        mensaje: 'Token Invalido',
-                        error: error
+    async verificarJWT(@Body('jwt') jwt: string, @Res() res) {
+        if (jwt) {
+            this._jwtService.verificarTokenASync(jwt, (error, data) => {
+                if (!error)
+                    return res.send(data);
+                else
+                    throw new BadRequestException({
+                        mensaje: '¡JWT inválido!',
+                        error: error,
                     });
-                }
-            })
-
-        }else{
+            });
+        } else {
             throw new BadRequestException({
-                mensaje:'No envia parametros'
-            })
+                mensaje: '¡No envía jwt!',
+            });
         }
     }
 }

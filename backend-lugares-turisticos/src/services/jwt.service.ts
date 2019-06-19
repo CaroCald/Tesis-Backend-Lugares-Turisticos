@@ -12,8 +12,15 @@ export class JwtService{
         return this.jwt.sign(payload, this.secreto, this.opciones);
     }
 
-
     verificarTokenASync(token:string, callback){
         return this.jwt.verify(token, this.secreto, callback)
+    }
+
+    verificarTokenSync(token: string) {
+        try {
+            return this.jwt.verify(token, this.secreto);
+        } catch (e) {
+            return false;
+        }
     }
 }
