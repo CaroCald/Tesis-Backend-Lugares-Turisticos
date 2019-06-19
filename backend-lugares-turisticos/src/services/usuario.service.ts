@@ -7,10 +7,10 @@ import {UsuarioEntity} from "../entities/usuario.entity";
 export class UsuarioService {
 
     async insert(entity: UsuarioEntity) {
-        const usuario = await this.selectPorAlias(entity.alias);
+        const usuario = await this.selectPorCorreo(entity.alias);
         if (usuario) {
             throw new BadRequestException({
-                mensaje: `¡El alias ${entity.alias} ya se encuentra registrado, intente con otro!`,
+                mensaje: `¡El correo ${entity.alias} ya se encuentra registrado, intente con otro!`,
             });
         } else {
             return getManager().insert(UsuarioEntity, entity);
@@ -28,9 +28,9 @@ export class UsuarioService {
         );
     }
 
-    selectPorAlias(alias: string) {
+    selectPorCorreo(email: string) {
         return getManager().findOne(UsuarioEntity, {
-                alias: alias,
+                email: email,
             },
         );
     }

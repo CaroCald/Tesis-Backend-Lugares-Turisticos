@@ -1,11 +1,13 @@
 import {Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
-
 import {extname} from "path";
 import {diskStorage} from "multer";
 import {UsuarioService} from "../services/usuario.service";
-import {JwtService} from "../services/jwt.service";
 import {FileInterceptor} from "@nestjs/platform-express";
+import {CommonSchema} from "../schemas/common.schema";
+import {EntityPipe} from "../pipes/entity.pipe";
+import {RolesGuard} from "../guards/rol.guard";
 
+@UseGuards(RolesGuard)
 @Controller('usuario')
 export class UsuarioController {
 
@@ -13,7 +15,7 @@ export class UsuarioController {
     }
 
     @Post()
-    create(@Body() crearUsuario) {
+    create(@Body(new EntityPipe(CommonSchema.USUARIO_SCHEMA)) crearUsuario) {
         return this._usuarioService.insert(crearUsuario);
     }
 
@@ -22,9 +24,9 @@ export class UsuarioController {
         return response.send(await this._usuarioService.selectAll());
     }
 
-    @Get(':alias')
-    async findOneNick(@Param('alias') alias, @Res() response) {
-        return response.send(await this._usuarioService.selectPorAlias(alias));
+    @Get(':correo')
+    async findOneNick(@Param('correo') correo, @Res() response) {
+        return response.send(await this._usuarioService.selectPorCorreo(correo));
     }
     @Get('id/:id')
     async findOne(@Param('id') id, @Res() response) {
