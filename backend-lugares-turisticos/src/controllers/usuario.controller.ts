@@ -5,9 +5,9 @@ import {UsuarioService} from "../services/usuario.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {CommonSchema} from "../schemas/common.schema";
 import {EntityPipe} from "../pipes/entity.pipe";
-import {RolesGuard} from "../guards/rol.guard";
+import {RolesGuard} from "../guards/auth.guard";
 
-@UseGuards(RolesGuard)
+
 @Controller('usuario')
 export class UsuarioController {
 
@@ -19,11 +19,12 @@ export class UsuarioController {
         return this._usuarioService.insert(crearUsuario);
     }
 
+    @UseGuards(RolesGuard)
     @Get()
     async findAll(@Res() response) {
         return response.send(await this._usuarioService.selectAll());
     }
-
+    @UseGuards(RolesGuard)
     @Get(':correo')
     async findOneNick(@Param('correo') correo, @Res() response) {
         return response.send(await this._usuarioService.selectPorCorreo(correo));

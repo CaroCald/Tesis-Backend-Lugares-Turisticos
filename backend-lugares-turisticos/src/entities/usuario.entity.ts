@@ -1,6 +1,5 @@
-import {BeforeInsert, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique} from 'typeorm';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique} from 'typeorm';
 import {RolEntity} from "./rol.entity";
-import * as crypto from 'crypto';
 
 @Unique(['alias'])
 @Entity("usuario")
@@ -20,10 +19,6 @@ export class UsuarioEntity {
     @Column({length: 30})
     alias: string;
 
-    @BeforeInsert()
-    hashPassword() {
-        this.password = crypto.createHmac('sha256', this.password).digest('hex');
-    }
     @Column()
     password: string;
 
@@ -37,6 +32,5 @@ export class UsuarioEntity {
     )
     @JoinColumn({name: 'codigo_rol_fk'})
     rol: RolEntity | string;
-
 
 }

@@ -13,6 +13,12 @@ export class RolesGuard implements CanActivate {
     ) {
     }
 
+
+    /**
+     * Funcion para determinar si un usuario puede acceder a una ruta o no.
+     * Se ha especificado un token al iniciar la sesion mismo que sera requerido para accerder a las demas rutas
+     * Si el token es el especificado se permitira el acceso, de no ser asi no podrá acceder.
+     * */
     canActivate(
         context: ExecutionContext,
     ): boolean | Promise<boolean> | Observable<boolean> {
