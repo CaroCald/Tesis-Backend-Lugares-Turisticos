@@ -1,7 +1,13 @@
 # Tesis de lugares turisticos
-```bash
-Backed de la aplicacion de mapeo de Lugares Turisticos realizada con Nest js
-```
+
+Backed de la aplicacion de mapeo de Lugares Turisticos realizada con [Nest](https://github.com/nestjs/nest) 
+
 ## Implementacion inicial
-Realizado por: Carolina Calderón
-               Graciela Moreno
+Realizado por: 
+* Carolina Calderón
+* Graciela Moreno
+## Instalación
+
+```bash
+$ npm install
+```
