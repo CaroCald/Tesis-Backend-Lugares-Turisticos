@@ -9,6 +9,15 @@ import {RolEntity} from "./entities/rol.entity";
 import {UsuarioService} from "./services/usuario.service";
 import {UsuarioController} from "./controllers/usuario.controller";
 import {LogMiddleware} from "./middlewares/log.middleware";
+import {TipoLugarEntity} from "./entities/tipo-lugar.entity";
+import {Lugar_turisticoEntity} from "./entities/lugar_turistico.entity";
+import {LugaresFavoritosEntity} from "./entities/favoritos.entity";
+import {TipoLugarTuristicoController} from "./controllers/tipo-lugar-turistico.controller";
+import {LugarTuristicoController} from "./controllers/lugar-turistico.controller";
+import {FavoritosController} from "./controllers/favoritos.controller";
+import {TipoLugarTuristicoService} from "./services/tipo-lugar-turistico.service";
+import {LugarTuriscoService} from "./services/lugar-turisco.service";
+import {FavoritosService} from "./services/favoritos.service";
 
 @Module({
   imports: [
@@ -21,18 +30,37 @@ import {LogMiddleware} from "./middlewares/log.middleware";
           database: 'lugares-turisticos',
           entities: [
               UsuarioEntity,
-              RolEntity
+              RolEntity,
+              TipoLugarEntity,
+              Lugar_turisticoEntity,
+              LugaresFavoritosEntity
           ],
           synchronize: true,
       }),
       TypeOrmModule.forFeature([
 
           UsuarioEntity,
-          RolEntity
+          RolEntity,
+          TipoLugarEntity,
+          Lugar_turisticoEntity,
+          LugaresFavoritosEntity
       ])
   ],
-  controllers: [AppController, AuthController, UsuarioController],
-  providers: [AppService, JwtService, UsuarioService],
+  controllers: [AppController,
+      AuthController,
+      UsuarioController,
+      TipoLugarTuristicoController,
+      LugarTuristicoController,
+      TipoLugarTuristicoController,
+      FavoritosController
+  ],
+  providers: [AppService,
+      JwtService,
+      UsuarioService,
+      TipoLugarTuristicoService,
+      LugarTuriscoService,
+      FavoritosService
+  ],
 })
 export class AppModule implements NestModule {
 
