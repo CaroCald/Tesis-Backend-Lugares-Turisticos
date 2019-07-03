@@ -2,6 +2,8 @@ import {Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards,} from '
 import {diskStorage} from "multer";
 import {RolesGuard} from "../guards/auth.guard";
 import {TipoLugarTuristicoService} from "../services/tipo-lugar-turistico.service";
+import {EntityPipe} from "../pipes/entity.pipe";
+import {CommonSchema} from "../schemas/common.schema";
 
 @UseGuards(RolesGuard)
 @Controller('tipo-lugar-turistico')
@@ -11,7 +13,7 @@ export class TipoLugarTuristicoController {
     }
 
     @Post()
-    create(@Body() nuevo) {
+    create(@Body(new EntityPipe(CommonSchema.TIPO_LUGAR)) nuevo) {
         return this._tipoLugarService.insert(nuevo);
     }
 

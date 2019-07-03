@@ -20,4 +20,21 @@ export class CommonSchema {
             password: joi.string().alphanum().min(3).max(32)
         });
 
+    static readonly TIPO_LUGAR = joi
+        .object()
+        .keys({
+            nombre: joi.string().min(2).max(80)
+
+        });
+
+    static readonly LUGAR_TURISTICO = joi
+        .object()
+        .keys({
+            nombre: joi.string().min(2).max(80),
+            descripcion: joi.string().min(2).max(200),
+            precio: joi.string().allow(null),
+            horario: joi.string().allow(null),
+            accesibilidad :joi.string().allow(null),
+            valoracion:joi.string().allow(null),
+        });
 }
