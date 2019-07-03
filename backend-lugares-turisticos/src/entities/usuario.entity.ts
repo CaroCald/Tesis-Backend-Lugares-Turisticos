@@ -37,5 +37,5 @@ export class UsuarioEntity {
 
 
     @OneToMany(type => LugaresFavoritosEntity, lugar => lugar.idUsuario)
-    idUser: LugaresFavoritosEntity[];
+    idUser: LugaresFavoritosEntity;
 }

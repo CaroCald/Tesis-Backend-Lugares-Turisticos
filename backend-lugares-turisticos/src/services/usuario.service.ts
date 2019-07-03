@@ -25,7 +25,7 @@ export class UsuarioService {
      * Metodo para obtener todos los registros de los usuarios almacenados en la BD.
      * */
     selectAll() {
-        return getManager().find(UsuarioEntity);
+        return getManager().find(UsuarioEntity );
     }
 
     /**
