@@ -18,6 +18,7 @@ import {FavoritosController} from "./controllers/favoritos.controller";
 import {TipoLugarTuristicoService} from "./services/tipo-lugar-turistico.service";
 import {LugarTuriscoService} from "./services/lugar-turisco.service";
 import {FavoritosService} from "./services/favoritos.service";
+import {TipoDiscapacidadEntity} from "./entities/tipo-discapacidad.entity";
 
 @Module({
   imports: [
@@ -33,7 +34,8 @@ import {FavoritosService} from "./services/favoritos.service";
               RolEntity,
               TipoLugarEntity,
               Lugar_turisticoEntity,
-              LugaresFavoritosEntity
+              LugaresFavoritosEntity,
+              TipoDiscapacidadEntity
           ],
           synchronize: true,
       }),
@@ -43,7 +45,8 @@ import {FavoritosService} from "./services/favoritos.service";
           RolEntity,
           TipoLugarEntity,
           Lugar_turisticoEntity,
-          LugaresFavoritosEntity
+          LugaresFavoritosEntity,
+          TipoDiscapacidadEntity
       ])
   ],
   controllers: [AppController,

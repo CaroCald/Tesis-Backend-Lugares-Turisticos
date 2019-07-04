@@ -32,6 +32,8 @@ export class CommonSchema {
         .keys({
             nombre: joi.string().min(2).max(80),
             descripcion: joi.string().min(2).max(200),
+            latitud: joi.number().required(),
+            longitud: joi.number().required(),
             precio: joi.string().allow(null),
             horario: joi.string().allow(null),
             accesibilidad :joi.string().allow(null),

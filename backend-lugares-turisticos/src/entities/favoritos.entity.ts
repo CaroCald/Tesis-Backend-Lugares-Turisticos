@@ -8,15 +8,18 @@ export class LugaresFavoritosEntity {
     id: number;
 
 
-    @ManyToOne(() => Lugar_turisticoEntity,
-            lugar => lugar.idfavoritos,
-        {eager: true})
+    @ManyToOne(
+        () => Lugar_turisticoEntity,
+        lugar => lugar.idfavoritos,
+        {eager: true}
+        )
     @JoinColumn({name: "idLugar"})
     idLugar: Lugar_turisticoEntity;
 
 
-    @ManyToOne(() => UsuarioEntity,
-            usuario => usuario.idUser,
+    @ManyToOne(
+        () => UsuarioEntity,
+        usuario => usuario.idUser,
         {eager: true}
         )
     @JoinColumn({name: "idUsuario"})
