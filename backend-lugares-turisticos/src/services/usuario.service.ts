@@ -18,7 +18,7 @@ export class UsuarioService {
      * */
     async insert(user: UsuarioEntity): Promise<UsuarioEntity> {
         user.password = crypto.createHmac('sha256', user.password).digest('hex');
-        return await this.userRepository.save(user);
+        return await this.userRepository.save(user)
     }
 
     /**

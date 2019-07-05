@@ -15,8 +15,18 @@ export class UsuarioController {
     }
 
     @Post()
-    create(@Body(new EntityPipe(CommonSchema.USUARIO_SCHEMA)) crearUsuario) {
-        return this._usuarioService.insert(crearUsuario);
+    create(@Body(new EntityPipe(CommonSchema.USUARIO_SCHEMA)) crearUsuario,@Res() response) {
+        return this._usuarioService.insert(crearUsuario)
+            .then(()=> response.status(200).json(
+                {
+                    data: crearUsuario
+                }))
+            .catch(err=> {
+            response.status(400).send({
+                message: err.message,
+                detail: err.detail
+            });
+        })
     }
 
     @UseGuards(RolesGuard)

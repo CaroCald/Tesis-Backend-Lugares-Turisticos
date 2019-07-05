@@ -1,5 +1,5 @@
 import {Injectable} from '@nestjs/common';
-import {getManager, Repository} from 'typeorm';
+import {createQueryBuilder, getManager, Repository} from 'typeorm';
 import { diskStorage } from 'multer';
 import {UsuarioEntity} from "../entities/usuario.entity";
 import { InjectRepository } from '@nestjs/typeorm'
@@ -56,4 +56,18 @@ export class FavoritosService {
         return getManager().delete(LugaresFavoritosEntity, id);
     }
 
+    /**Obtener todos los lugares favoritos de un usuario por su alias*/
+
+     async userData(alias: any): Promise<any[]> {
+
+        const user =  await createQueryBuilder(LugaresFavoritosEntity, "lugares")
+            .innerJoinAndSelect("lugares.idLugar", "lugar")
+            .innerJoinAndSelect("lugares.idUsuario", "usuario")
+            .where("lugares.idUsuario=usuario.id")
+            .andWhere("usuario.alias= '"+alias+"'")
+            .getMany();
+
+        return user
+
+    }
 }

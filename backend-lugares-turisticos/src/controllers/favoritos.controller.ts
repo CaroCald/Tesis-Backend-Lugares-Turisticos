@@ -26,6 +26,13 @@ export class FavoritosController {
     async findOne(@Param('id') id, @Res() response) {
         return response.send(await this._favoritosService.selectById(id));
     }
+
+    @Get('lista/:alias')
+    async getAllData(@Param('alias') alias, @Res() response) {
+        return response.send(await this._favoritosService.userData(alias));
+    }
+
+
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
         return await this._favoritosService.update(id, nuevo);
