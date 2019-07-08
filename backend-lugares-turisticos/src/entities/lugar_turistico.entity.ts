@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {TipoLugarEntity} from "./tipo-lugar.entity";
 import {LugaresFavoritosEntity} from "./favoritos.entity";
 import {TipoDiscapacidadEntity} from "./tipo-discapacidad.entity";
@@ -6,7 +6,7 @@ import {TipoDiscapacidadEntity} from "./tipo-discapacidad.entity";
 @Entity("lugar-turistico")
 export class Lugar_turisticoEntity {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column({ length: 50})

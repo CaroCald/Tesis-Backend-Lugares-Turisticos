@@ -2,6 +2,8 @@ import {Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards,} from '
 import {diskStorage} from "multer";
 import {RolesGuard} from "../guards/auth.guard";
 import {FavoritosService} from "../services/favoritos.service";
+import {PeticionNoValidaException} from "../exceptions/peticion-no-valida.exception";
+import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
 
 @UseGuards(RolesGuard)
 @Controller('favoritos')
@@ -11,8 +13,19 @@ export class FavoritosController {
     }
 
     @Post()
-    create(@Body() nuevo) {
-        return this._favoritosService.insert(nuevo);
+    create(@Body() nuevo, @Res() response) {
+        return this._favoritosService.insert(nuevo)
+            .then(()=> response.status(200).json(
+            {
+                data: nuevo
+            }
+        )).catch(
+                err=> {
+                   if(err){
+                       throw new  ErrorIngresoDatosException(err.message,err.detail);
+                   }
+                }
+        );
     }
 
 

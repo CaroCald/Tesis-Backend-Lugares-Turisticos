@@ -4,6 +4,7 @@ import {RolesGuard} from "../guards/auth.guard";
 import {LugarTuriscoService} from "../services/lugar-turisco.service";
 import {EntityPipe} from "../pipes/entity.pipe";
 import {CommonSchema} from "../schemas/common.schema";
+import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
 
 @UseGuards(RolesGuard)
 @Controller('lugar-turistico')
@@ -13,8 +14,19 @@ export class LugarTuristicoController {
     }
 
     @Post()
-    create(@Body(new EntityPipe(CommonSchema.LUGAR_TURISTICO)) nuevo) {
-        return this._lugarService.insert(nuevo);
+    create(@Body(new EntityPipe(CommonSchema.LUGAR_TURISTICO)) nuevo, @Res() response) {
+        return this._lugarService.insert(nuevo)
+            .then(()=> response.status(200).json(
+            {
+                data: nuevo
+            }
+        )).catch(
+            err=> {
+                if(err){
+                    throw new  ErrorIngresoDatosException(err.message,err.detail);
+                }
+            }
+        );;
     }
 
 

@@ -31,12 +31,14 @@ export class CommonSchema {
         .object()
         .keys({
             nombre: joi.string().min(2).max(80),
-            descripcion: joi.string().min(2).max(200),
+            descripcionLugar: joi.string().min(2).max(200),
             latitud: joi.number().required(),
             longitud: joi.number().required(),
             precio: joi.string().allow(null),
             horario: joi.string().allow(null),
-            accesibilidad :joi.string().allow(null),
+            descripcionAccesibilidad :joi.string().allow(null),
             valoracion:joi.string().allow(null),
+            tipoDiscapacidad:joi.number().required(),
+            tipoLugar: joi.number().required(),
         });
 }

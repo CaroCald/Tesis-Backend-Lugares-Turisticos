@@ -19,6 +19,8 @@ import {TipoLugarTuristicoService} from "./services/tipo-lugar-turistico.service
 import {LugarTuriscoService} from "./services/lugar-turisco.service";
 import {FavoritosService} from "./services/favoritos.service";
 import {TipoDiscapacidadEntity} from "./entities/tipo-discapacidad.entity";
+import {TipoDiscapacidadController} from "./controllers/tipo-discapacidad.controller";
+import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
 
 @Module({
   imports: [
@@ -55,14 +57,16 @@ import {TipoDiscapacidadEntity} from "./entities/tipo-discapacidad.entity";
       TipoLugarTuristicoController,
       LugarTuristicoController,
       TipoLugarTuristicoController,
-      FavoritosController
+      FavoritosController,
+      TipoDiscapacidadController
   ],
   providers: [AppService,
       JwtService,
       UsuarioService,
       TipoLugarTuristicoService,
       LugarTuriscoService,
-      FavoritosService
+      FavoritosService,
+      TipoDiscapacidadService
   ],
 })
 export class AppModule implements NestModule {

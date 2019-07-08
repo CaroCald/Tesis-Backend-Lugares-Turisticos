@@ -1,21 +1,20 @@
 import {Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards,} from '@nestjs/common';
 import {diskStorage} from "multer";
 import {RolesGuard} from "../guards/auth.guard";
-import {TipoLugarTuristicoService} from "../services/tipo-lugar-turistico.service";
-import {EntityPipe} from "../pipes/entity.pipe";
-import {CommonSchema} from "../schemas/common.schema";
+import {TipoDiscapacidadService} from "../services/tipo-discapacidad.service";
 import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
 
-@UseGuards(RolesGuard)
-@Controller('tipo-lugar-turistico')
-export class TipoLugarTuristicoController {
 
-    constructor(private readonly _tipoLugarService: TipoLugarTuristicoService) {
+@UseGuards(RolesGuard)
+@Controller('tipo-discapacidad')
+export class TipoDiscapacidadController {
+
+    constructor(private readonly _tipoDiscap: TipoDiscapacidadService) {
     }
 
     @Post()
-    create(@Body(new EntityPipe(CommonSchema.TIPO_LUGAR)) nuevo,  @Res() response) {
-        return this._tipoLugarService.insert(nuevo)
+    create(@Body() nuevo,  @Res() response) {
+        return this._tipoDiscap.insert(nuevo)
             .then(()=> response.status(200).json(
                 {
                     data: nuevo
@@ -26,28 +25,28 @@ export class TipoLugarTuristicoController {
                         throw new  ErrorIngresoDatosException(err.message,err.detail);
                     }
                 }
-            );
+            );;
     }
 
 
     @Get()
     async findAll(@Res() response) {
-        return response.send(await this._tipoLugarService.selectAll());
+        return response.send(await this._tipoDiscap.selectAll());
     }
 
 
     @Get('id/:id')
     async findOne(@Param('id') id, @Res() response) {
-        return response.send(await this._tipoLugarService.selectById(id));
+        return response.send(await this._tipoDiscap.selectById(id));
     }
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._tipoLugarService.update(id, nuevo);
+        return await this._tipoDiscap.update(id, nuevo);
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._tipoLugarService.delete(id);
+        return await this._tipoDiscap.delete(id);
     }
 
 

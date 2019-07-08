@@ -6,6 +6,7 @@ import {FileInterceptor} from "@nestjs/platform-express";
 import {CommonSchema} from "../schemas/common.schema";
 import {EntityPipe} from "../pipes/entity.pipe";
 import {RolesGuard} from "../guards/auth.guard";
+import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
 
 
 @Controller('usuario')
@@ -22,10 +23,9 @@ export class UsuarioController {
                     data: crearUsuario
                 }))
             .catch(err=> {
-            response.status(400).send({
-                message: err.message,
-                detail: err.detail
-            });
+                if(err){
+                    throw new  ErrorIngresoDatosException(err.message,err.detail);
+                }
         })
     }
 
@@ -39,19 +39,22 @@ export class UsuarioController {
     async findOneNick(@Param('correo') correo, @Res() response) {
         return response.send(await this._usuarioService.selectPorCorreo(correo));
     }
+    @UseGuards(RolesGuard)
     @Get('id/:id')
     async findOne(@Param('id') id, @Res() response) {
         return response.send(await this._usuarioService.selectById(id));
     }
+    @UseGuards(RolesGuard)
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
         return await this._usuarioService.update(id, nuevo);
     }
-
+    @UseGuards(RolesGuard)
     @Delete(':id')
     async remove(@Param('id') id) {
         return await this._usuarioService.delete(id);
     }
+
 
     @Post('upload-image')
     @UseInterceptors(FileInterceptor('image', {
@@ -102,6 +105,13 @@ export class UsuarioController {
         } else {
             throw new HttpException('¡Formato de imagen no soportado!', HttpStatus.BAD_REQUEST);
         }
+    }
+
+
+    @UseGuards(RolesGuard)
+    @Get('buscarFoto/:archivo')
+    async findFile(@Res() response, @Param('archivo') archivo){
+        return response.sendFile(`users/${archivo}`,{root: 'public'});
     }
 
 }

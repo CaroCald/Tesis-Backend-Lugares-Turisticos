@@ -1,11 +1,11 @@
-import {Column, Entity, OneToMany, PrimaryColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {Lugar_turisticoEntity} from "./lugar_turistico.entity";
 
 
 @Entity("tipo-discapacidad")
 export class TipoDiscapacidadEntity {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column({ length: 50})

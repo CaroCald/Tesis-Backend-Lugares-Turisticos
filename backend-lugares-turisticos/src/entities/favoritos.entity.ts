@@ -1,10 +1,10 @@
-import {Entity, JoinColumn, ManyToOne, PrimaryColumn} from "typeorm";
+import {Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {Lugar_turisticoEntity} from "./lugar_turistico.entity";
 import {UsuarioEntity} from "./usuario.entity";
 
 @Entity("favoritos")
 export class LugaresFavoritosEntity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
 
