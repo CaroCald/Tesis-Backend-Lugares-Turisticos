@@ -48,12 +48,28 @@ export class FavoritosController {
 
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._favoritosService.update(id, nuevo);
+
+        var idEncontrado = await this._favoritosService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Lugar favorito no encontrado!!","El id del lugar favortito aun no ha sido registrado");
+
+        }else{
+            return await this._favoritosService.update(id, nuevo);
+
+        }
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._favoritosService.delete(id);
+
+        var idEncontrado = await this._favoritosService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Lugar favorito no encontrado!!","El id del lugar favortito aun no ha sido registrado");
+
+        }else{
+            return await this._favoritosService.delete(id);
+
+        }
     }
 
 

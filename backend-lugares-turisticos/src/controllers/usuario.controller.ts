@@ -39,20 +39,39 @@ export class UsuarioController {
     async findOneNick(@Param('correo') correo, @Res() response) {
         return response.send(await this._usuarioService.selectPorCorreo(correo));
     }
+
+
     @UseGuards(RolesGuard)
     @Get('id/:id')
     async findOne(@Param('id') id, @Res() response) {
         return response.send(await this._usuarioService.selectById(id));
     }
+
+
     @UseGuards(RolesGuard)
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._usuarioService.update(id, nuevo);
+        var idEncontrado = await this._usuarioService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Usuario no encontrado!!","El id del usuario aun no ha sido registrado");
+
+        }else{
+            return await this._usuarioService.update(id, nuevo);
+
+        }
     }
+
     @UseGuards(RolesGuard)
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._usuarioService.delete(id);
+        var idEncontrado = await this._usuarioService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Usuario no encontrado!!","El id del usuario aun no ha sido registrado");
+
+        }else{
+            return await this._usuarioService.delete(id);
+
+        }
     }
 
 

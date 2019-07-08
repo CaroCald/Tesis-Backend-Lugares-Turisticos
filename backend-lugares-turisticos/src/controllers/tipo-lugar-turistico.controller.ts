@@ -42,12 +42,27 @@ export class TipoLugarTuristicoController {
     }
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._tipoLugarService.update(id, nuevo);
+        var idEncontrado = await this._tipoLugarService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Tipo de lugar no encontrado!!","El id del tipo del lugar aun no ha sido registrado");
+
+        }else{
+            return await this._tipoLugarService.update(id, nuevo);
+
+        }
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._tipoLugarService.delete(id);
+        var idEncontrado = await this._tipoLugarService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Tipo de lugar no encontrado!!","El id del tipo del lugar aun no ha sido registrado");
+
+        }else{
+            return await this._tipoLugarService.delete(id);
+
+
+        }
     }
 
 

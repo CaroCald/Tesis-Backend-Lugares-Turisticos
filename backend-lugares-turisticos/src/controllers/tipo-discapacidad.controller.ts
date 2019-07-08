@@ -25,7 +25,7 @@ export class TipoDiscapacidadController {
                         throw new  ErrorIngresoDatosException(err.message,err.detail);
                     }
                 }
-            );;
+            );
     }
 
 
@@ -41,12 +41,27 @@ export class TipoDiscapacidadController {
     }
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._tipoDiscap.update(id, nuevo);
+
+        var idEncontrado = await this._tipoDiscap.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Tipo de discapacidad no encontrado!!","El id del tipo de discapacidad aun no ha sido registrado");
+
+        }else{
+            return await this._tipoDiscap.update(id, nuevo);
+
+        }
+
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._tipoDiscap.delete(id);
+        var idEncontrado = await this._tipoDiscap.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Tipo de discapacidad no encontrado!!","El id del tipo de discapacidad aun no ha sido registrado");
+
+        }else{
+            return await this._tipoDiscap.delete(id);
+        }
     }
 
 

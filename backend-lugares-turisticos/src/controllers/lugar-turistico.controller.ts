@@ -42,12 +42,27 @@ export class LugarTuristicoController {
     }
     @Put(':id')
     async update(@Param('id') id, @Body() nuevo) {
-        return await this._lugarService.update(id, nuevo);
+        var idEncontrado = await this._lugarService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Lugar turistico no encontrado!!","El id del lugar turistico aun no ha sido registrado");
+
+        }else{
+            return await this._lugarService.update(id, nuevo);
+
+        }
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-        return await this._lugarService.delete(id);
+        var idEncontrado = await this._lugarService.selectById(id);
+        if(idEncontrado==undefined){
+            throw new  ErrorIngresoDatosException("Lugar turistico no encontrado!!","El id del lugar turistico aun no ha sido registrado");
+
+        }else{
+            return await this._lugarService.delete(id);
+
+
+        }
     }
 
 

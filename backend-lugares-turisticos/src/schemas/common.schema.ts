@@ -10,7 +10,7 @@ export class CommonSchema {
             alias: joi.string().min(4).max(30),
             password: joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
             foto_usuario: joi.string().allow(null),
-            rol: joi.string().min(2).max(25)
+            rol: joi.string().min(1).max(25)
         });
 
         static readonly AUTENTICACION_SCHEMA = joi
