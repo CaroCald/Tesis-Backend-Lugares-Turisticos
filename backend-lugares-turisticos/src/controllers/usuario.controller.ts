@@ -19,9 +19,7 @@ export class UsuarioController {
     create(@Body(new EntityPipe(CommonSchema.USUARIO_SCHEMA)) crearUsuario,@Res() response) {
         return this._usuarioService.insert(crearUsuario)
             .then(()=> response.status(200).json(
-                {
-                    data: crearUsuario
-                }))
+                crearUsuario))
             .catch(err=> {
                 if(err){
                     throw new  ErrorIngresoDatosException(err.message,err.detail);
