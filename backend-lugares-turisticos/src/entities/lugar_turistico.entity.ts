@@ -9,19 +9,19 @@ export class Lugar_turisticoEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50})
+    @Column({ length: 100})
     nombre: string;
 
-    @Column({ length: 200})
+    @Column({ length: 2000})
     descripcionLugar: string;
 
-    @Column({ length: 50})
+    @Column({ length: 1000})
     precio?: string;
 
-    @Column({ length: 50})
+    @Column({ length: 1000})
     horario?: string;
 
-    @Column({ length: 200})
+    @Column({ length: 2000})
     descripcionAccesibilidad?: string;
 
     @Column({ length: 50})
