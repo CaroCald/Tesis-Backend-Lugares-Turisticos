@@ -17,9 +17,7 @@ export class TipoLugarTuristicoController {
     create(@Body(new EntityPipe(CommonSchema.TIPO_LUGAR)) nuevo,  @Res() response) {
         return this._tipoLugarService.insert(nuevo)
             .then(()=> response.status(200).json(
-                {
-                    data: nuevo
-                }
+               nuevo
             )).catch(
                 err=> {
                     if(err){
