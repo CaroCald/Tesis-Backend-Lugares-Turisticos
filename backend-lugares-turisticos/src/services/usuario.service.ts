@@ -18,14 +18,14 @@ export class UsuarioService {
      * */
     async insert(user: UsuarioEntity): Promise<UsuarioEntity> {
         user.password = crypto.createHmac('sha256', user.password).digest('hex');
-        return await this.userRepository.save(user);
+        return await this.userRepository.save(user)
     }
 
     /**
      * Metodo para obtener todos los registros de los usuarios almacenados en la BD.
      * */
     selectAll() {
-        return getManager().find(UsuarioEntity);
+        return getManager().find(UsuarioEntity );
     }
 
     /**

@@ -1,7 +1,7 @@
 import {HttpException, HttpStatus} from "@nestjs/common";
 
 
-export class PeticionNoValidaException extends  HttpException{
+export class ErrorIngresoDatosException extends  HttpException{
 
     constructor(private _mensaje, private _detalle){
         super(
