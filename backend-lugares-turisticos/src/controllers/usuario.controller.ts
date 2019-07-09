@@ -122,7 +122,7 @@ export class UsuarioController {
             };
 
         } else {
-            throw new HttpException('¡Formato de imagen no soportado!', HttpStatus.BAD_REQUEST);
+            throw new HttpException('¡Elija una imagen!', HttpStatus.BAD_REQUEST);
         }
     }
 

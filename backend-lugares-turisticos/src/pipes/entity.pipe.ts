@@ -14,7 +14,8 @@ export class EntityPipe implements PipeTransform {
             error,
         } = Joi.validate(jsonToValidate, this._schema);
         if (error) {
-            throw new  PeticionNoValidaException('Peticion Invalida!',error, 4);
+            var errObtenido=error.details;
+            throw new  PeticionNoValidaException('Peticion Invalida!',errObtenido);
         } else {
             return jsonToValidate;
         }

@@ -22,29 +22,36 @@ export class AuthController {
     async emitirToken(@Body(new EntityPipe(CommonSchema.AUTENTICACION_SCHEMA)) usuario){
         const enviarParametros= usuario;
         const usuarioBD = await this._usuarioService.selectPorCorreo(usuario.email) as UsuarioEntity;
-        if(enviarParametros){
-            const password=crypto.createHmac('sha256', usuario.password).digest('hex');
-            const credencialesValidas = usuario.email === usuarioBD.email && password === usuarioBD.password;
-            if(credencialesValidas){
-                return {
-                    jwt: this._jwtService.emitirToken({
-                        usuario:usuario
-                    })
-                };
+        if(usuarioBD){
+            if(enviarParametros){
+                const password=crypto.createHmac('sha256', usuario.password).digest('hex');
+                const credencialesValidas = usuario.email === usuarioBD.email && password === usuarioBD.password;
+                if(credencialesValidas){
+                    return {
+                        jwt: this._jwtService.emitirToken({
+                            usuario:usuario
+                        })
+                    };
+                }
+                else{
+                    throw new BadRequestException(
+                        {
+                            mensaje: 'Las Credenciales son inválidas vuelva a intentar.'
+                        }
+                    )
+                }
+            }else
+            {
+                throw new BadRequestException({
+                    mensaje:'Ingrese todos los parametros'
+                })
             }
-            else{
-                throw new BadRequestException(
-                    {
-                        mensaje: 'Las Credenciales son inválidas vuelva a intentar.'
-                    }
-                )
-            }
-        }else
-        {
+        }else{
             throw new BadRequestException({
-                mensaje:'Ingrese todos los parametros'
+                mensaje:'Las Credenciales son inválidas vuelva a intentar'
             })
         }
+
     }
 
 

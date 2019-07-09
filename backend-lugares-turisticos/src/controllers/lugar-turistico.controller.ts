@@ -26,7 +26,7 @@ export class LugarTuristicoController {
                     throw new  ErrorIngresoDatosException(err.message,err.detail);
                 }
             }
-        );;
+        );
     }
 
 
