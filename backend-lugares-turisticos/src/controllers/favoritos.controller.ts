@@ -16,9 +16,7 @@ export class FavoritosController {
     create(@Body() nuevo, @Res() response) {
         return this._favoritosService.insert(nuevo)
             .then(()=> response.status(200).json(
-            {
-                data: nuevo
-            }
+            nuevo
         )).catch(
                 err=> {
                    if(err){
