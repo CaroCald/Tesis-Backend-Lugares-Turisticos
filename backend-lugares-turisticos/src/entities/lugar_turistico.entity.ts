@@ -33,10 +33,14 @@ export class Lugar_turisticoEntity {
     @Column({type: 'double precision'})
     longitud: number;
 
+    @Column({  nullable:true,length: 2000})
+    foto_lugar: string;
+
     @ManyToOne(
         type => TipoLugarEntity,
         tipo => tipo.lugar,
-        {eager: true}
+
+        {eager: true,}
     )
     @JoinColumn({name: "tipoLugar"})
     tipoLugar: TipoLugarEntity;

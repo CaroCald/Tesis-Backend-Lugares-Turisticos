@@ -38,6 +38,7 @@ export class CommonSchema {
             horario: joi.string().allow(null),
             descripcionAccesibilidad :joi.string().allow(null),
             valoracion:joi.string().allow(null),
+            foto_lugar:joi.string().allow(null),
             tipoDiscapacidad:joi.number().required(),
             tipoLugar: joi.number().required(),
         });
