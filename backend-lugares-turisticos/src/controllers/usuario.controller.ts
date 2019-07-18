@@ -128,7 +128,15 @@ export class UsuarioController {
     @UseGuards(RolesGuard)
     @Get('buscarFoto/:archivo')
     async findFile(@Res() response, @Param('archivo') archivo){
-        return response.sendFile(`users/${archivo}`,{root: 'public'});
+        var foto =response.sendFile(`users/${archivo}`,{root: 'public'});
+        if(foto){
+            return  foto;
+        }else{
+            throw new  ErrorIngresoDatosException("Foto no encontrada","Asegurese de ingresar el nombre correcto de la fotografia");
+
+        }
+
+
     }
 
 }
