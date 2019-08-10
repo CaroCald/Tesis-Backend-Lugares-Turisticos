@@ -1,10 +1,11 @@
-import {BadRequestException, Body, Controller, Post, Res} from "@nestjs/common";
+import {BadRequestException, Body, Controller, Get, Param, Post, Res} from "@nestjs/common";
 import {JwtService} from "../services/jwt.service";
 import {UsuarioEntity} from "../entities/usuario.entity";
 import {UsuarioService} from "../services/usuario.service";
 import {EntityPipe} from "../pipes/entity.pipe";
 import {CommonSchema} from "../schemas/common.schema";
 import * as crypto from "crypto";
+import {AES, enc} from "crypto-ts";
 
 @Controller('autenticacion')
 export class AuthController {
@@ -24,8 +25,9 @@ export class AuthController {
         const usuarioBD = await this._usuarioService.selectPorCorreo(usuario.email) as UsuarioEntity;
         if(usuarioBD){
             if(enviarParametros){
-                const password=crypto.createHmac('sha256', usuario.password).digest('hex');
-                const credencialesValidas = usuario.email === usuarioBD.email && password === usuarioBD.password;
+                const passwordDos = AES.decrypt(usuarioBD.password,'tesis').toString(enc.Utf8);
+                const credencialesValidas = usuario.email === usuarioBD.email && passwordDos === usuario.password;
+               
                 if(credencialesValidas){
                     return {
                         jwt: this._jwtService.emitirToken({
@@ -51,6 +53,16 @@ export class AuthController {
                 mensaje:'Las Credenciales son inválidas vuelva a intentar'
             })
         }
+
+    }
+
+    @Post("password")
+    async desencriptarContraseña(@Body('password') password, @Res() response){
+        var ejem = AES.decrypt(password,'tesis').toString(enc.Utf8);
+        console.log(ejem.toString());
+        return response.send({
+            password:ejem
+        });
 
     }
 

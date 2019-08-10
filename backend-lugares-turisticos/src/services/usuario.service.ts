@@ -4,6 +4,8 @@ import { diskStorage } from 'multer';
 import {UsuarioEntity} from "../entities/usuario.entity";
 import { InjectRepository } from '@nestjs/typeorm'
 import * as crypto from "crypto";
+import {AES, enc} from "crypto-ts";
+
 @Injectable()
 export class UsuarioService {
 
@@ -17,7 +19,7 @@ export class UsuarioService {
      * Se guarda la contraseña encriptada con sha256 en la BD.
      * */
     async insert(user: UsuarioEntity): Promise<UsuarioEntity> {
-        user.password = crypto.createHmac('sha256', user.password).digest('hex');
+        user.password=AES.encrypt(user.password,"tesis").toString()
         return await this.userRepository.save(user)
     }
 

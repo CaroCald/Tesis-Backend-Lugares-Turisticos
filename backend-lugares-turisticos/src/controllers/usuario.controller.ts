@@ -7,7 +7,8 @@ import {CommonSchema} from "../schemas/common.schema";
 import {EntityPipe} from "../pipes/entity.pipe";
 import {RolesGuard} from "../guards/auth.guard";
 import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
-
+import {arch} from "os";
+const path = require('path');
 
 @Controller('usuario')
 export class UsuarioController {
@@ -116,7 +117,7 @@ export class UsuarioController {
 
             return {
                 response: '¡Imagen guardada con éxito!',
-                imagePath: `${file.destination}/${file.filename}`.replace('./public/users/', ''),
+                imagePath: `${file.destination}${file.filename}`.replace('./public/users/', ''),
             };
 
         } else {
@@ -128,15 +129,13 @@ export class UsuarioController {
     @UseGuards(RolesGuard)
     @Get('buscarFoto/:archivo')
     async findFile(@Res() response, @Param('archivo') archivo){
-        var foto =response.sendFile(`users/${archivo}`,{root: 'public'});
+        var foto =response.sendFile("users/"+archivo,{root:"public"});
         if(foto){
-            return  foto;
-        }else{
-            throw new  ErrorIngresoDatosException("Foto no encontrada","Asegurese de ingresar el nombre correcto de la fotografia");
-
+            return foto
         }
+        /*
 
-
+         */
     }
 
 }
