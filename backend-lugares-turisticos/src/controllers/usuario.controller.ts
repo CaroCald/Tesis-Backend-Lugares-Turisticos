@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+﻿import {Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import {extname} from "path";
 import {diskStorage} from "multer";
 import {UsuarioService} from "../services/usuario.service";
@@ -33,7 +33,8 @@ export class UsuarioController {
     async findAll(@Res() response) {
         return response.send(await this._usuarioService.selectAll());
     }
-    @UseGuards(RolesGuard)
+
+
     @Get(':correo')
     async findOneNick(@Param('correo') correo, @Res() response) {
         return response.send(await this._usuarioService.selectPorCorreo(correo));
@@ -126,16 +127,19 @@ export class UsuarioController {
     }
 
 
-    @UseGuards(RolesGuard)
+
     @Get('buscarFoto/:archivo')
     async findFile(@Res() response, @Param('archivo') archivo){
-        var foto =response.sendFile("users/"+archivo,{root:"public"});
+        var foto =response.sendFile(`users/${archivo}`,{root: 'public'});
         if(foto){
-            return foto
+            return  foto;
         }
-        /*
+	  /*else{
+            throw new  ErrorIngresoDatosException("Foto no encontrada","Asegurese de ingresar el nombre correcto de la fotografia");
 
-         */
+        }*/
+
+
     }
 
 }

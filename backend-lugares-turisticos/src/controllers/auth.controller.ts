@@ -27,7 +27,6 @@ export class AuthController {
             if(enviarParametros){
                 const passwordDos = AES.decrypt(usuarioBD.password,'tesis').toString(enc.Utf8);
                 const credencialesValidas = usuario.email === usuarioBD.email && passwordDos === usuario.password;
-               
                 if(credencialesValidas){
                     return {
                         jwt: this._jwtService.emitirToken({
@@ -56,13 +55,14 @@ export class AuthController {
 
     }
 
-    @Post("password")
+     @Post("password")
     async desencriptarContraseña(@Body('password') password, @Res() response){
         var ejem = AES.decrypt(password,'tesis').toString(enc.Utf8);
-        console.log(ejem.toString());
+
         return response.send({
             password:ejem
         });
+
 
     }
 
