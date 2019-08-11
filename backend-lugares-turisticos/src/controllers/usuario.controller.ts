@@ -7,7 +7,8 @@ import {CommonSchema} from "../schemas/common.schema";
 import {EntityPipe} from "../pipes/entity.pipe";
 import {RolesGuard} from "../guards/auth.guard";
 import {ErrorIngresoDatosException} from "../exceptions/error-ingreso-datos.exception";
-
+import {arch} from "os";
+const path = require('path');
 
 @Controller('usuario')
 export class UsuarioController {
@@ -33,7 +34,7 @@ export class UsuarioController {
         return response.send(await this._usuarioService.selectAll());
     }
 
-    
+
     @Get(':correo')
     async findOneNick(@Param('correo') correo, @Res() response) {
         return response.send(await this._usuarioService.selectPorCorreo(correo));
@@ -126,7 +127,7 @@ export class UsuarioController {
     }
 
 
-    
+
     @Get('buscarFoto/:archivo')
     async findFile(@Res() response, @Param('archivo') archivo){
         var foto =response.sendFile(`users/${archivo}`,{root: 'public'});

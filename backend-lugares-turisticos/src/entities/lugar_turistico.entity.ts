@@ -36,6 +36,9 @@ export class Lugar_turisticoEntity {
     @Column({  nullable:true,length: 2000})
     foto_lugar: string;
 
+    @Column({nullable: true})
+    comentario?: string;
+
     @ManyToOne(
         type => TipoLugarEntity,
         tipo => tipo.lugar,

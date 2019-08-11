@@ -1,4 +1,4 @@
-﻿import {BadRequestException, Body, Controller, Get, Param, Post, Res} from "@nestjs/common";
+import {BadRequestException, Body, Controller, Get, Param, Post, Res} from "@nestjs/common";
 import {JwtService} from "../services/jwt.service";
 import {UsuarioEntity} from "../entities/usuario.entity";
 import {UsuarioService} from "../services/usuario.service";
@@ -58,7 +58,7 @@ export class AuthController {
      @Post("password")
     async desencriptarContraseña(@Body('password') password, @Res() response){
         var ejem = AES.decrypt(password,'tesis').toString(enc.Utf8);
-     
+
         return response.send({
             password:ejem
         });
