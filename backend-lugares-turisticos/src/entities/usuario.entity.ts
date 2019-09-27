@@ -2,6 +2,7 @@ import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn
 import {RolEntity} from "./rol.entity";
 import {Lugar_turisticoEntity} from "./lugar_turistico.entity";
 import {LugaresFavoritosEntity} from "./favoritos.entity";
+import {ComentariosEntity} from "./comentarios.entity";
 
 @Unique(['alias'])
 @Entity("usuario")
@@ -41,4 +42,7 @@ export class UsuarioEntity {
 
     @OneToMany(type => LugaresFavoritosEntity, lugar => lugar.idUsuario)
     idUser: LugaresFavoritosEntity;
+
+    @OneToMany(type => ComentariosEntity, comentario => comentario.idUsuario)
+    idComentario: ComentariosEntity;
 }

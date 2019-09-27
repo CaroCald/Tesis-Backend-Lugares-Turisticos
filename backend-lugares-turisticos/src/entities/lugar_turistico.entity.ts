@@ -2,6 +2,7 @@ import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, Primary
 import {TipoLugarEntity} from "./tipo-lugar.entity";
 import {LugaresFavoritosEntity} from "./favoritos.entity";
 import {TipoDiscapacidadEntity} from "./tipo-discapacidad.entity";
+import {ComentariosEntity} from "./comentarios.entity";
 
 @Entity("lugar-turistico")
 export class Lugar_turisticoEntity {
@@ -61,5 +62,9 @@ export class Lugar_turisticoEntity {
         lugar => lugar.idLugar
     )
     idfavoritos: LugaresFavoritosEntity[];
+
+
+    @OneToMany(type => ComentariosEntity, comentario => comentario.idLugar)
+    idComment: ComentariosEntity;
 
 }

@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b875df57-90e8-436d-93b8-e0c653d240c6" name="Default Changelist" comment="catch errores en ingreso de usuario si existe un alias duplicado">
+      <change afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/comentarios.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/middlewares/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/middlewares/logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +21,7 @@
     <session id="263016378">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.25" value="1" />
@@ -34,6 +32,7 @@
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.42" value="1" />
@@ -42,7 +41,7 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -51,7 +50,7 @@
           <entry key="gitignore" value="2" />
           <entry key="png" value="2" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="211" />
+          <entry key="ts" value="217" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
@@ -60,25 +59,25 @@
           <entry key="Image" value="4" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="SQL" value="1" />
-          <entry key="TypeScript" value="211" />
+          <entry key="TypeScript" value="217" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="6" />
-          <entry key="ts" value="4968" />
-          <entry key="txt" value="903" />
+          <entry key="ts" value="5152" />
+          <entry key="txt" value="936" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="909" />
-          <entry key="TypeScript" value="4968" />
+          <entry key="PLAIN_TEXT" value="942" />
+          <entry key="TypeScript" value="5152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="23" />
+          <entry key="TypeScriptServerServiceImpl" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -89,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/usuario.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="19" column="90" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="90" />
+              <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
               <folding>
                 <element signature="e#0#154#0" expanded="true" />
               </folding>
@@ -97,23 +96,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/auth.controller.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="68" selection-start-column="65" selection-end-column="68" />
+            <state relative-caret-position="241">
+              <caret line="46" column="36" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="61" column="30" lean-forward="true" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/comentarios.entity.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="67" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="67" />
+            <state relative-caret-position="284">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#74#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/favoritos.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="25" column="36" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="25" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/rol.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="19" column="27" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="19" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -143,7 +178,6 @@
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/middlewares/log.middleware.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/favoritos.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/tipo-lugar-turistico.service.ts" />
-        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/favoritos.service.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/lugar-turisco.service.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/favoritos.entity.ts" />
@@ -151,7 +185,6 @@
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/tipo-lugar.entity.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/tipo-discapacidad.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/tipo-discapacidad.service.ts" />
-        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/exceptions/error-ingreso-datos.exception.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/exceptions/peticion-no-valida.exception.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/pipes/entity.pipe.ts" />
@@ -161,10 +194,14 @@
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/tipo-discapacidad.controller.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/tipo-lugar-turistico.controller.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/schemas/common.schema.ts" />
-        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/usuario.controller.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts" />
         <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/auth.controller.ts" />
+        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/comentarios.ts" />
+        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts" />
+        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/comentarios.entity.ts" />
+        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts" />
+        <option value="$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts" />
       </list>
     </option>
   </component>
@@ -195,6 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,14 +256,7 @@
               <item name="Tesis-Backend-Lugares-Turisticos" type="462c0819:PsiDirectoryNode" />
               <item name="backend-lugares-turisticos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tesis-Backend-Lugares-Turisticos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tesis-Backend-Lugares-Turisticos" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-lugares-turisticos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tesis-Backend-Lugares-Turisticos" type="b2602c69:ProjectViewProjectNode" />
@@ -236,7 +267,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,7 +332,8 @@
       <workItem from="1564431033276" duration="383000" />
       <workItem from="1564431718790" duration="3741000" />
       <workItem from="1564519435873" duration="4039000" />
-      <workItem from="1565480272219" duration="222000" />
+      <workItem from="1565480272219" duration="2617000" />
+      <workItem from="1569616980703" duration="801000" />
     </task>
     <task id="LOCAL-00001" summary="conexion con bd postgres">
       <created>1560898506070</created>
@@ -430,11 +461,25 @@
       <option name="project" value="LOCAL" />
       <updated>1563462063406</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="cambios para auth">
+      <created>1565480516499</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1565480516499</updated>
+    </task>
+    <task id="LOCAL-00020" summary="cambios menores">
+      <created>1565486775927</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1565486775927</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77934000" />
+    <option name="totallyTimeSpent" value="81352000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -458,11 +503,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49925596" weight="0.3295082" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3295082" />
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50074404" side_tool="true" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -513,9 +558,11 @@
     <MESSAGE value="cambio en entidades length de atributos" />
     <MESSAGE value="script para lugares turisticos primera version" />
     <MESSAGE value="correccion menor" />
-    <MESSAGE value="cambios menores" />
     <MESSAGE value="error de foto no encontrada solucionado" />
-    <option name="LAST_COMMIT_MESSAGE" value="error de foto no encontrada solucionado" />
+    <MESSAGE value="cambios para auth" />
+    <MESSAGE value="catch errores en ingreso de usuario si existe un alias duplicado" />
+    <MESSAGE value="cambios menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios menores" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../../../Carolina Calderón/Documents/GitHub/Tesis-Backend-Lugares-Turisticos/backend-lugares-turisticos/src/guards/rol.guard.ts" />
@@ -546,13 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/rol.entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -605,27 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/favoritos.entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -685,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/lugar-turistico.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -716,30 +728,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="21" column="67" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/usuario.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="19" column="90" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="90" />
+        <state relative-caret-position="170">
+          <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
           <folding>
             <element signature="e#0#154#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/services/usuario.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="67" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/controllers/auth.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="68" selection-start-column="65" selection-end-column="68" />
+        <state relative-caret-position="187">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/rol.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/favoritos.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="25" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/comentarios.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/usuario.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="46" column="36" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-lugares-turisticos/src/entities/lugar_turistico.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="61" column="30" lean-forward="true" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
         </state>
       </provider>
     </entry>
