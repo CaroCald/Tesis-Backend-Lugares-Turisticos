@@ -11,3 +11,7 @@ Realizado por:
 ```bash
 $ npm install
 ```
+## Iniciar los servicios
+```bash
+$ npm run start
+```
