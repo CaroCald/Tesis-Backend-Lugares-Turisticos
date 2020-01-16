@@ -5,6 +5,7 @@ import {LugaresFavoritosEntity} from "./favoritos.entity";
 import {ComentariosEntity} from "./comentarios.entity";
 
 @Unique(['alias'])
+@Unique(['email'])
 @Entity("usuario")
 export class UsuarioEntity {
     @PrimaryGeneratedColumn()
@@ -27,9 +28,6 @@ export class UsuarioEntity {
 
     @Column({name: 'foto_usuario'})
     foto_usuario?: string;
-
-    @Column({nullable: true})
-    discapacidad?: boolean;
 
     @ManyToOne(
         () => RolEntity,

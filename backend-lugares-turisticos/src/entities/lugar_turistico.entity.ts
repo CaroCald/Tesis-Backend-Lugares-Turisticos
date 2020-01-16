@@ -13,16 +13,16 @@ export class Lugar_turisticoEntity {
     @Column({ length: 100})
     nombre: string;
 
-    @Column({ length: 2000})
+    @Column({ length: 5000})
     descripcionLugar: string;
 
     @Column({ length: 1000})
     precio?: string;
 
-    @Column({ length: 1000})
+    @Column({ length: 2000})
     horario?: string;
 
-    @Column({ length: 2000})
+    @Column({ length: 3000})
     descripcionAccesibilidad?: string;
 
     @Column({ length: 50})
@@ -37,8 +37,6 @@ export class Lugar_turisticoEntity {
     @Column({  nullable:true,length: 2000})
     foto_lugar: string;
 
-    @Column({nullable: true})
-    comentario?: string;
 
     @ManyToOne(
         type => TipoLugarEntity,

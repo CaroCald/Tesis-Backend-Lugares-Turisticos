@@ -66,5 +66,17 @@ export class AuthController {
 
     }
 
+    @Post("encriptar")
+    async encriptarContraseña(@Body('password') password, @Res() response){
+        var pass = AES.encrypt(password,"tesis").toString()
+
+        return response.send({
+            password:pass
+        });
+
+
+    }
+
+
 
 }
