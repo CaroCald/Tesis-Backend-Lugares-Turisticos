@@ -21,6 +21,9 @@ import {FavoritosService} from "./services/favoritos.service";
 import {TipoDiscapacidadEntity} from "./entities/tipo-discapacidad.entity";
 import {TipoDiscapacidadController} from "./controllers/tipo-discapacidad.controller";
 import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
+import {ComentariosEntity} from "./entities/comentarios.entity";
+import {ComentariosService} from "./services/comentarios.service";
+import {ComentariosController} from "./controllers/comentarios.controller";
 
 @Module({
   imports: [
@@ -37,7 +40,7 @@ import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
               TipoLugarEntity,
               Lugar_turisticoEntity,
               LugaresFavoritosEntity,
-              TipoDiscapacidadEntity
+              TipoDiscapacidadEntity, ComentariosEntity
           ],
           synchronize: true,
       }),
@@ -48,7 +51,7 @@ import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
           TipoLugarEntity,
           Lugar_turisticoEntity,
           LugaresFavoritosEntity,
-          TipoDiscapacidadEntity
+          TipoDiscapacidadEntity, ComentariosEntity
       ])
   ],
   controllers: [AppController,
@@ -58,7 +61,8 @@ import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
       LugarTuristicoController,
       TipoLugarTuristicoController,
       FavoritosController,
-      TipoDiscapacidadController
+      TipoDiscapacidadController,
+      ComentariosController
   ],
   providers: [AppService,
       JwtService,
@@ -66,7 +70,8 @@ import {TipoDiscapacidadService} from "./services/tipo-discapacidad.service";
       TipoLugarTuristicoService,
       LugarTuriscoService,
       FavoritosService,
-      TipoDiscapacidadService
+      TipoDiscapacidadService,
+      ComentariosService
   ],
 })
 export class AppModule implements NestModule {
