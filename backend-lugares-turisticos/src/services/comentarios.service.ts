@@ -71,4 +71,20 @@ export class ComentariosService {
         return user
 
     }
+	
+	
+	async listCommentarios(idUser: any): Promise<any[]> {
+		
+		const user =  await createQueryBuilder(ComentariosEntity, "lug")
+            .innerJoinAndSelect("lug.idLugar", "lugar")
+            .innerJoinAndSelect("lug.idUsuario", "usuario")
+            .where("lug.idLugar='"+idUser+"'")
+            .getMany();
+	  
+        return user
+
+    }
+	
+	
+	
 }

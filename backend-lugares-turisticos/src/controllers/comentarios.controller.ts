@@ -43,6 +43,11 @@ export class ComentariosController {
     async getAllData(@Param('alias') alias, @Res() response) {
         return response.send(await this._comentariosService.userData(alias));
     }
+	
+	 @Get('lugares/:idUser')
+    async getDataLugar(@Param('idUser') idUser, @Res() response) {
+        return response.send(await this._comentariosService.listCommentarios(idUser));
+    }
 
 
     @Put(':id')
