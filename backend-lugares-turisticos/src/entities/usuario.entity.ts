@@ -29,6 +29,9 @@ export class UsuarioEntity {
     @Column({name: 'foto_usuario'})
     foto_usuario?: string;
 
+	@Column({nullable: true})
+    discapacidad?: boolean;
+	
     @ManyToOne(
         () => RolEntity,
         rol => rol.usuario,
